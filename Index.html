@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Loan Application Calcualtor</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<h3>Applicant Income</h3><br><input id="ApplicantIncome" name="Applicant Income" required="required">
+	<h3>Coapplicant Income</h3><br><input id="CoapplicantIncome" name="Copplicant Income" required="required">
+	<h3>Loan Amount</h3><br><input id="LoanAmount" name="Loan Amount" required="required">
+	<h3>Credit History?</h3><br><select name="CreditHistory" id="CreditHistory" required="required">
+		<option value="CreditHistory">Yes</option>
+                <option value="CreditHistory">No</option>
+	</select>
+	<h3>Gender</h3><br><select name="Gender" id="Gender" required="required">
+		<option value="Petrol">Male</option>
+                <option value=Female>Female</option>
+	</select>
+	<h3>Married?</h3><br><select name="Married" id="Married" required="required">	
+		<option value="Married">Yes</option>
+                <option value="Married">No</option>
+	</select>
+	<h3>Number of Dependents</h3><br><select name="Dependent" id="Dependent" required="required">	
+		<option value="Dependent">One</option>
+                <option value="Dependent">Two</option>
+                <option value="Dependent">Three or more</option>
+	</select>
+	<h3>Current Address Semi Urban or Urban</h3><br><select name="CreditHistory" id="CreditHistory" required="required">
+		<option value="Property Area">Semi Urban</option>
+                <option value="Property Area">Urban</option>
+	 </select>
+
+	<br><br><button id="sub" type="submit ">Calculate Loan</button>
+            <br>
+	
+
+   {{ prediction_text }}
+
+ </div>
+
+</form>
+</body>
+</html>
+
